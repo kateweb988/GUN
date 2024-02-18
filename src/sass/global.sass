@@ -1,0 +1,128 @@
+body
+   font-family: "Raleway", sans-serif
+   background: white
+   font-weight: 400
+   font-size: 16px
+   line-height: 140%
+   color: rgb(0, 0, 0)
+a
+   text-decoration: none
+   box-sizing: border-box
+   transition: 0.5s !important
+   &:hover 
+      color: $green
+.container
+   padding: 0 15px
+   max-width: 1374px
+   margin: 0 auto
+   @media ( max-width: 1199px )
+      max-width: 960px !important
+   @media (max-width: 991px)
+      max-width: 720px !important
+   @media (max-width: 767px)
+      max-width: 540px !important
+.d-flex, .q
+   display: flex
+.body-wrap
+   overflow: hidden
+   position: relative
+   display: flex
+   flex-direction: column
+   min-height: 100vh
+footer
+   margin-top: auto
+h1
+   margin: 0
+   color: rgb(0, 81, 47)
+   font-size: 55px
+   letter-spacing: 0.05em
+   font-weight: 300
+   line-height: 116%
+h2 
+   margin: 0
+   color: rgb(0, 0, 0)
+   font-size: 56px
+   font-weight: 300
+   line-height: 116%
+   letter-spacing: -0.03em
+   text-align: center
+ul 
+   margin: 0
+   padding: 0
+   list-style-type: none
+p
+   margin: 0
+.svg 
+   transition: 0.5s ease
+   fill-opacity: 1
+a
+   transition: color 0.5s ease
+   box-sizing: border-box
+li
+   a
+      transition: color 0.5s ease
+button
+   cursor: pointer
+   box-sizing: border-box
+textarea
+   transition: border 0.5s
+   box-sizing: border-box
+   &:focus
+      transition: border 0.5s
+      outline: none
+      border: 1px solid $green !important
+input
+   transition: 0.5s
+   box-sizing: border-box
+   border: 1px solid #fff
+   color: white
+   &:disabled
+      pointer-events: none
+      opacity: 0.5
+   &:focus 
+      border: 1px solid $green !important
+      transition: 0.5s
+   &:focus-visible
+      outline: initial
+   &.error 
+      border: 2px solid red !important
+label.error 
+   display: none !important
+path
+   transition: fill 0.5s, stroke 0.5s
+div 
+   box-sizing: border-box
+.icon 
+   transition: fill 0.5s, stroke 0.5s
+html * 
+   scrollbar-width: thin
+   scrollbar-color: blue $green
+*::-webkit-scrollbar,
+html *::-webkit-scrollbar 
+   height: 4px
+   width: 4px
+*::-webkit-scrollbar-track,
+html *::-webkit-scrollbar-track 
+   background: #E7E7E7
+   border-radius: 3px
+*::-webkit-scrollbar-thumb,
+html *::-webkit-scrollbar-thumb 
+   background-color: $green
+   border-radius: 6px
+.btn 
+   display: flex
+   align-items: center
+   justify-content: center
+   height: 49px
+   border-radius: 100px
+   background: $green
+   font-size: 18px
+   font-weight: 500
+   line-height: 140%
+   width: max-content
+   padding: 0 20px
+   color: rgb(255, 255, 255)
+   border: 1px solid $green
+   &:hover 
+      background: transparent
+      color: $green

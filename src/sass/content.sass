@@ -1,0 +1,319 @@
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder 
+   color: rgb(128, 128, 128) !important
+input::-moz-placeholder, textarea::-moz-placeholder
+   color: rgb(128, 128, 128) !important
+input:-ms-input-placeholder, textarea:-ms-input-placeholder 
+   color: rgb(128, 128, 128) !important
+input:-moz-placeholder, textarea:-moz-placeholder 
+   color: rgb(128, 128, 128) !important
+.menu-btn, .menu
+   display: none
+.mob 
+   display: none
+.nav
+   padding: 24px 0 18px
+   &__box 
+      align-items: center
+      justify-content: space-between
+   &__logo 
+      align-items: center
+      a 
+        display: block
+        img 
+            width: 100%
+            height: 100% 
+            object-fit: contain
+      p 
+         font-size: 18px
+         font-weight: 500
+         margin-left: 24px
+   &__info 
+      align-items: center
+   &__list 
+      flex-wrap: wrap 
+      li 
+         margin-right: 24px
+         &:last-child
+            margin-right: 0
+         a 
+            color: rgba(0, 0, 0, 0.5)
+            font-weight: 500
+         &:hover 
+            a 
+               color: $green
+   &__tel 
+      margin-left: 44px
+      width: 204px
+      height: 44px
+      align-items: center
+      justify-content: center
+      border-radius: 100px
+      color: rgb(255, 255, 255)
+      font-size: 14px
+      background: $green
+      border: 1px solid $green
+      font-weight: 700
+      &:hover 
+         background: transparent
+.header
+   .container
+      max-width: 1381px
+   &__wrap 
+      border-radius: 8px
+      position: relative
+      overflow: hidden
+      padding: 262px 174px 347px 0
+      h1 
+         position: relative
+         z-index: 1
+         margin-left: auto
+         width: max-content
+   &__pic 
+      width: 100%
+      height: 100%
+      object-fit: cover 
+      position: absolute
+      left: 0
+      top: 0
+      z-index: 0
+.info 
+   padding: 96px 0 25px 
+   &__title 
+      font-weight: 300
+      font-size: 40px
+      text-align: center
+      width: 100%
+      max-width: 890px 
+      margin: 0 auto 50px
+      line-height: 118%
+      letter-spacing: -0.03em
+      span 
+         font-weight: 500
+         color: $green
+   &__content
+      width: 100%
+      max-width: 884px 
+      text-align: center
+      margin: 0 auto 50px  
+      p 
+         margin-bottom: 25px
+         font-size: 18px
+         font-weight: 500
+         line-height: 140%
+         letter-spacing: -0.01em
+         &:last-child
+            margin-bottom: 0
+   &__btn 
+      margin: 0 auto
+.item 
+   padding: 53px 0 102px
+   &__box 
+      margin-top: 48px
+      justify-content: flex-start
+      flex-wrap: wrap 
+   &__block 
+      width: 32.14%
+      margin: 0 24px 48px 0
+      display: none
+      &:nth-child(3n)
+         margin-right: 0
+      &:hover 
+         .item__area 
+            border: 1px solid $green
+         .item__name 
+            color: $green
+   &__area 
+      display: flex
+      width: 100%
+      height: 512px
+      align-items: center
+      justify-content: center
+      transition: 0.5s 
+      border: 1px solid rgb(235, 235, 235)
+      border-radius: 8px
+      box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.06)
+      img 
+         width: 100%
+         height: 100%
+         object-fit: contain
+      &:hover
+         border: 1px solid $green
+   &__content 
+      margin-top: 26px
+   &__name 
+      font-size: 32px
+      margin-bottom: 9px
+      color: #000
+      font-weight: 300
+      letter-spacing: -0.03em
+      transition: 0.5s
+   &__sum 
+      color: rgb(128, 128, 128)
+      font-size: 14px
+      font-weight: 500
+   &__btn 
+      min-width: 202px
+      width: max-content
+      margin: 0 auto
+.dealers
+   .container
+      border-radius: 8px
+      padding: 70px 90px 90px 130px
+      background: rgb(245, 249, 248)
+   h2 
+      position: relative
+      left: -20px
+   &__wrap 
+      width: 100%
+      max-width: 100%
+      margin: 0 auto
+   &__title 
+      margin-top: 90px
+      font-size: 40px
+      letter-spacing: -0.03em
+      font-weight: 300
+      line-height: 120%
+   &__box 
+      justify-content: space-between
+      align-items: flex-start
+      margin-top: 49px
+   &__content
+      width: 100%
+      max-width: 546px
+   #map 
+      width: 100%
+      height: 456px
+      margin-left: 24px
+      border-radius: 8px
+      overflow: hidden
+   &__row 
+      width: 100%
+      padding: 32px 0 
+      justify-content: space-between
+      align-items: flex-start
+      border-top: 1px solid rgb(235, 235, 235)
+   &__name 
+      color: rgb(128, 128, 128)
+      font-size: 20px
+      font-weight: 300
+   &__info 
+      width: 100%
+      max-width: 322px
+      p
+         font-size: 20px
+         font-weight: 300
+         letter-spacing: -0.01em
+         line-height: 140%
+      a 
+         color: $green
+         font-size: 20px
+         letter-spacing: -0.01em
+         display: block
+         margin-bottom: 5px
+         width: max-content
+         font-weight: 300
+         &:hover 
+            color: #000
+            opacity: 0.7
+.order
+   padding: 119px 0 122px
+   h2 
+      text-align: left
+      margin-bottom: 32px
+   &__box 
+      justify-content: space-between
+      align-items: flex-start
+      max-width: 1116px 
+      margin: 0 auto
+   &__content 
+      width: 100%
+      max-width: 489px
+      p 
+         margin-bottom: 35px
+         font-size: 20px
+         font-weight: 300
+         letter-spacing: -0.01em
+         a 
+            font-weight: 300
+            color: $green
+            &:hover 
+               color: #000
+               opacity: 0.7
+   &__form 
+      justify-content: space-between
+      flex-wrap: wrap
+      width: 100%
+      max-width: 489px
+      input 
+         height: 56px
+         border: 1px solid rgb(235, 235, 235)
+         border-radius: 8px
+         background: rgb(247, 247, 247)
+         padding-left: 24px
+         color: #000
+         font-size: 14px
+         font-weight: 500
+         width: 100%
+         margin-bottom: 8px
+         &:nth-child(1), &:nth-child(2)
+            width: 49.185%
+      textarea
+         min-height: 100px 
+         max-width: 100% 
+         width: 100%
+         padding: 17px 0 0 24px
+         border: 1px solid rgb(235, 235, 235)
+         border-radius: 8px
+         background: rgb(247, 247, 247)
+         color: #000
+         font-size: 14px
+         font-weight: 500
+   &__btn 
+      width: 204px
+      height: 49px
+      margin: 32px 0 0 auto
+      transition: 0.5s
+.footer 
+   padding: 48px 0
+   border-radius: 8px
+   background: $green
+   margin: 0 5px
+   &__row 
+      align-items: center
+      justify-content: space-between
+      padding-bottom: 41px
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15)
+   &__socials 
+      align-items: center
+      .svg 
+         path 
+            transition: 0.5s ease
+      a 
+         &:first-child
+            margin-right: 18px
+         &:hover 
+            .svg 
+               transition: 0.5s ease
+               path 
+                  fill-opacity: 1
+                  transition: 0.5s ease
+   &__rights
+      text-align: center
+      margin-top: 14px
+      color: rgba(255, 255, 255, 0.6)
+      font-size: 12px
+   &__list 
+      justify-content: flex-start
+      flex-wrap: wrap 
+      li 
+         margin-right: 24px
+         &:last-child
+            margin-right: 0
+         a 
+            color: rgba(255, 255, 255, 0.6)
+            font-size: 16px
+            font-weight: 500
+         &:hover 
+            a 
+               color: white
+      
