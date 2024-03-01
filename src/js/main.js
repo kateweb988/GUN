@@ -1,13 +1,324 @@
 $(document).ready(function () {
-  $(".item__block").slice(0, 3).show();
+  $(".item .item__block").slice(0, 3).show();
   $("#loadMore").on("click", function (e) {
     e.preventDefault();
-    $(".item__block:hidden").slice(0, 3).slideDown();
-    if ($(".item__block:hidden").length == 0) {
+    $(".item .item__block:hidden").slice(0, 3).slideDown();
+    if ($(".item .item__block:hidden").length == 0) {
       $("#loadMore").text("No Content").addClass("noContent");
     }
   });
 })
+document.addEventListener("DOMContentLoaded", () => {
+  //popup1
+  let popupBg = document.querySelector('.popup__bg');
+  let popup = document.querySelector('.popup');
+  let openPopupButtons = document.querySelectorAll('.catalog .item__block');
+  let closePopupButton = document.querySelector('.close-popup');
+
+  openPopupButtons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      popupBg.classList.add('active');
+      popup.classList.add('active');
+    })
+  });
+
+  closePopupButton.addEventListener('click', () => {
+    popupBg.classList.remove('active');
+    popup.classList.remove('active');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (e.target === popupBg) {
+      popupBg.classList.remove('active');
+      popup.classList.remove('active');
+    }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      //ваша функция закрытия окна
+      popupBg.classList.remove('active');
+      popup.classList.remove('active');
+    }
+  });
+});
+document.addEventListener('DOMContentLoaded', function () {
+  const swiper1 = new Swiper('.swiper1', {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    pagination: {
+      el: ".swiper-pagination1",
+    },
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        spaceBetween: 0,
+        loop: true,
+        slidesPerView: 1
+      },
+      767: {
+        spaceBetween: 0,
+        slidesPerView: 1
+      },
+      992: {
+        spaceBetween: 0,
+        slidesPerView: 1
+      },
+      1200: {
+        spaceBetween: 0,
+        slidesPerView: 1
+      }
+    }
+  });
+  const swiper4 = new Swiper('.swiper4', {
+    slidesPerView: 4,
+    spaceBetween: 42,
+    navigation: {
+      nextEl: '.swiper-button-next5',
+      prevEl: '.swiper-button-prev5',
+    },
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        spaceBetween: 0,
+        loop: true,
+        slidesPerView: 1,
+        pagination: {
+          el: ".swiper-pagination55",
+        },
+      },
+      767: {
+        spaceBetween: 10,
+        slidesPerView: 3
+      },
+      992: {
+        spaceBetween: 20,
+        slidesPerView: 4
+      },
+      1200: {
+        spaceBetween: 42,
+        slidesPerView: 4
+      }
+    }
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  //popup2
+  let popupBg2 = document.querySelector('.popup__bg2');
+  let popup2 = document.querySelector('.popup2');
+  let openPopupButtons2 = document.querySelectorAll('.footer__btn');
+  let closePopupButton2 = document.querySelector('.close-popup2');
+
+  openPopupButtons2.forEach((button) => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      popupBg2.classList.add('active');
+      popup2.classList.add('active');
+    })
+  });
+
+  closePopupButton2.addEventListener('click', () => {
+    popupBg2.classList.remove('active');
+    popup2.classList.remove('active');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (e.target === popupBg2) {
+      popupBg2.classList.remove('active');
+      popup2.classList.remove('active');
+    }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      //ваша функция закрытия окна
+      popupBg2.classList.remove('active');
+      popup2.classList.remove('active');
+    }
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  class ItcTabs {
+    constructor(target, config) {
+      const defaultConfig = {};
+      this._config = Object.assign(defaultConfig, config);
+      this._elTabs = typeof target === 'string' ? document.querySelector(target) : target;
+      this._elButtons = this._elTabs.querySelectorAll('.tabs__btn');
+      this._elPanes = this._elTabs.querySelectorAll('.tabs__pane');
+      this._eventShow = new Event('tab.itc.change');
+      this._init();
+      this._events();
+    }
+    _init() {
+      this._elTabs.setAttribute('role', 'tablist');
+      this._elButtons.forEach((el, index) => {
+        el.dataset.index = index;
+        el.setAttribute('role', 'tab');
+        this._elPanes[index].setAttribute('role', 'tabpanel');
+      });
+    }
+    show(elLinkTarget) {
+      const elPaneTarget = this._elPanes[elLinkTarget.dataset.index];
+      const elLinkActive = this._elTabs.querySelector('.tabs__btn_active');
+      const elPaneShow = this._elTabs.querySelector('.tabs__pane_show');
+      if (elLinkTarget === elLinkActive) {
+        return;
+      }
+      elLinkActive ? elLinkActive.classList.remove('tabs__btn_active') : null;
+      elPaneShow ? elPaneShow.classList.remove('tabs__pane_show') : null;
+      elLinkTarget.classList.add('tabs__btn_active');
+      elPaneTarget.classList.add('tabs__pane_show');
+      this._elTabs.dispatchEvent(this._eventShow);
+      elLinkTarget.focus();
+    }
+    showByIndex(index) {
+      const elLinkTarget = this._elButtons[index];
+      elLinkTarget ? this.show(elLinkTarget) : null;
+    };
+    _events() {
+      this._elTabs.addEventListener('click', (e) => {
+        const target = e.target.closest('.tabs__btn');
+        if (target) {
+          e.preventDefault();
+          this.show(target);
+        }
+      });
+    }
+  }
+
+  // инициализация .tabs как табов
+  new ItcTabs('.tabs');
+});
+document.addEventListener("DOMContentLoaded", () => {
+  (function ($) {
+    var elActive = '';
+    $.fn.selectCF = function (options) {
+
+      // option
+      var settings = $.extend({
+        color: "#888888", // color
+        backgroundColor: "#FFFFFF", // background
+        change: function () { }, // event change
+      }, options);
+
+      return this.each(function () {
+
+        var selectParent = $(this);
+        list = [],
+          html = '';
+
+        //parameter CSS
+        var width = $(selectParent).width();
+
+        $(selectParent).hide();
+        if ($(selectParent).children('option').length == 0) { return; }
+        $(selectParent).children('option').each(function () {
+          if ($(this).is(':selected')) { s = 1; title = $(this).text(); } else { s = 0; }
+          list.push({
+            value: $(this).attr('value'),
+            text: $(this).text(),
+            selected: s,
+          })
+        })
+
+        // style
+        var style = " background: " + settings.backgroundColor + "; color: " + settings.color + " ";
+
+        html += "<ul class='selectCF'>";
+        html += "<li>";
+        html += "<span class='arrowCF ion-chevron-right' style='" + style + "'></span>";
+        html += "<span class='titleCF' style='" + style + "; width:" + width + "px'>" + title + "</span>";
+        html += "<span class='searchCF' style='" + style + "; width:" + width + "px'><input style='color:" + settings.color + "' /></span>";
+        html += "<ul>";
+        $.each(list, function (k, v) {
+          s = (v.selected == 1) ? "selected" : "";
+          html += "<li value=" + v.value + " class='" + s + "'>" + v.text + "</li>";
+        })
+        html += "</ul>";
+        html += "</li>";
+        html += "</ul>";
+        $(selectParent).after(html);
+        var customSelect = $(this).next('ul.selectCF'); // add Html
+        var seachEl = $(this).next('ul.selectCF').children('li').children('.searchCF');
+        var seachElOption = $(this).next('ul.selectCF').children('li').children('ul').children('li');
+        var seachElInput = $(this).next('ul.selectCF').children('li').children('.searchCF').children('input');
+
+        // handle active select
+        $(customSelect).unbind('click').bind('click', function (e) {
+          e.stopPropagation();
+          if ($(this).hasClass('onCF')) {
+            elActive = '';
+            $(this).removeClass('onCF');
+            $(this).removeClass('searchActive'); $(seachElInput).val('');
+            $(seachElOption).show();
+          } else {
+            if (elActive != '') {
+              $(elActive).removeClass('onCF');
+              $(elActive).removeClass('searchActive'); $(seachElInput).val('');
+              $(seachElOption).show();
+            }
+            elActive = $(this);
+            $(this).addClass('onCF');
+            $(seachEl).children('input').focus();
+          }
+        })
+
+        // handle choose option
+        var optionSelect = $(customSelect).children('li').children('ul').children('li');
+        $(optionSelect).bind('click', function (e) {
+          var value = $(this).attr('value');
+          if ($(this).hasClass('selected')) {
+            //
+          } else {
+            $(optionSelect).removeClass('selected');
+            $(this).addClass('selected');
+            $(customSelect).children('li').children('.titleCF').html($(this).html());
+            $(selectParent).val(value);
+            settings.change.call(selectParent); // call event change
+          }
+        })
+
+        // handle search 
+        $(seachEl).children('input').bind('keyup', function (e) {
+          var value = $(this).val();
+          if (value) {
+            $(customSelect).addClass('searchActive');
+            $(seachElOption).each(function () {
+              if ($(this).text().search(new RegExp(value, "i")) < 0) {
+                // not item
+                $(this).fadeOut();
+              } else {
+                // have item
+                $(this).fadeIn();
+              }
+            })
+          } else {
+            $(customSelect).removeClass('searchActive');
+            $(seachElOption).fadeIn();
+          }
+        })
+
+      });
+    };
+    $(document).click(function () {
+      if (elActive != '') {
+        $(elActive).removeClass('onCF');
+        $(elActive).removeClass('searchActive');
+      }
+    })
+  }(jQuery));
+
+  $(function () {
+    var event_change = $('#event-change');
+    $(".select").selectCF({
+      change: function () {
+        var value = $(this).val();
+        var text = $(this).children('option:selected').html();
+        console.log(value + ' : ' + text);
+        event_change.html(value + ' : ' + text);
+      }
+    });
+  });
+});
 window.addEventListener("DOMContentLoaded", function () {
   [].forEach.call(document.querySelectorAll('.tel'), function (input) {
     var keyCode;

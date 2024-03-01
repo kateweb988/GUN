@@ -109,6 +109,15 @@ html *::-webkit-scrollbar-track
 html *::-webkit-scrollbar-thumb 
    background-color: $green
    border-radius: 6px
+.tabs__nav, .popup__bg 
+   scrollbar-width: thin
+   scrollbar-color: transparent transparent
+.tabs__nav::-webkit-scrollbar, .popup__bg 
+   height: 2px
+   width: 2px
+.tabs__nav::-webkit-scrollbar-track, .popup__bg 
+   background: transparent
+   border-radius: 3px
 .btn 
    display: flex
    align-items: center
